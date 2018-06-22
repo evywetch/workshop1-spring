@@ -10,8 +10,8 @@ public class MainController {
 		PERSON, EMPLOYEE, CUSTOMER, MAINMENU, ACCOUNT, PRODUCT, ORDER
 	};
 
-	@Autowired
-	private TypeOfController controllerType;
+	
+	// private TypeOfController controllerType;
 	@Autowired
 	private PersonController personController;
 	@Autowired
