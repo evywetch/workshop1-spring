@@ -6,13 +6,14 @@ import java.util.*;
 import java.util.logging.*;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import rsvier.workshop.domain.Order;
 import rsvier.workshop.domain.Person;
 import rsvier.workshop.utility.DataSource;
 import rsvier.workshop.utility.LogConnection;
 
-@Component
+@Repository
 public class OrderDAOImp implements OrderDAO {
 
 	private Logger logger = LogConnection.getLogger();

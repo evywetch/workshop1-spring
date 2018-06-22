@@ -8,3 +8,12 @@ import org.springframework.context.annotation.Configuration;
 public class ControllerConfig {
 
 }
+
+
+/*
+
+This config class gather all other config class from other pakages, then u can pass only this class
+in AnnotationConfigApplicationContext then it will store all the beans from other pakage too.
+
+
+*/

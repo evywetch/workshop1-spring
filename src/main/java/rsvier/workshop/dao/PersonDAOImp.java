@@ -6,12 +6,13 @@ import java.util.*;
 import java.util.logging.*;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import rsvier.workshop.domain.*;
 import rsvier.workshop.utility.*;
 
 
-@Component
+@Repository
 public class PersonDAOImp implements PersonDAO {
 
 	private Logger logger = LogConnection.getLogger();

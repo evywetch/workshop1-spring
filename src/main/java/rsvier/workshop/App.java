@@ -5,11 +5,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import rsvier.workshop.controller.ControllerConfig;
 import rsvier.workshop.controller.MainMenuController;
-import rsvier.workshop.dao.DAOConfig;
-import rsvier.workshop.service.ServiceConfig;
+
+
 import rsvier.workshop.view.MainMenuView;
 import rsvier.workshop.view.View;
-import rsvier.workshop.view.ViewConfig;
+
 
 public class App {
 
@@ -17,7 +17,8 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class,ViewConfig.class,ServiceConfig.class,DAOConfig.class);
+		
+		ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class);
 
 	//	View view = new MainMenuView();
 		
@@ -38,3 +39,7 @@ public class App {
 }
 
 
+
+
+
+// ,ViewConfig.class,ServiceConfig.class,DAOConfig.class

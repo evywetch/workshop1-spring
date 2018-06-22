@@ -1,8 +1,13 @@
 package rsvier.workshop.view;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+
 public class AccountView extends View{
 
 	@Override
@@ -50,5 +55,15 @@ public class AccountView extends View{
 	public void printConfirmUpdateAccount() {
 		System.out.println("\nUw account is met succes bijgewerkt.");
 		
+	}
+	
+	@PostConstruct
+	public void init(){
+		System.out.println("AccountView bean is created");
+	}
+	
+	@PreDestroy
+	public void destroy(){
+		System.out.println("AccountView bean is going to be destroyed");
 	}
 }
