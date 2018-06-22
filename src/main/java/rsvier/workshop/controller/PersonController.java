@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import rsvier.workshop.controller.MainController.TypeOfController;
 
 @Component
-public class PersonController extends Controller {
+public class PersonController implements Controller {
 
 	@Autowired
 	private PersonView personView ;

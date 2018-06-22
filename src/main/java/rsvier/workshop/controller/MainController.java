@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MainController {
-	@Component
+
 	public enum TypeOfController {
 		PERSON, EMPLOYEE, CUSTOMER, MAINMENU, ACCOUNT, PRODUCT, ORDER
 	};
@@ -26,7 +26,7 @@ public class MainController {
 	private ProductController productController;
 	@Autowired
 	private OrderController orderController;
-	@Autowired
+
 	private  Controller currentController;
 
 	// Switch method for setting currentController and calling the runView

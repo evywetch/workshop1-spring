@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import rsvier.workshop.controller.MainController.TypeOfController;
 
 @Component
-public class EmployeeController extends Controller{
+public class EmployeeController implements Controller{
 	
 	@Autowired
 	private EmployeeView employeeView;

@@ -14,7 +14,7 @@ import rsvier.workshop.view.*;
 import rsvier.workshop.controller.MainController.TypeOfController;
 
 @Component
-public class CustomerController extends Controller {
+public class CustomerController implements Controller {
 
 	@Autowired 
 	private CustomerView customerView;

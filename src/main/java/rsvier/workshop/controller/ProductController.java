@@ -13,7 +13,7 @@ import rsvier.workshop.view.*;
 
 
 @Component
-public class ProductController extends Controller {
+public class ProductController implements Controller {
 
 	@Autowired
 	private ProductView productView;

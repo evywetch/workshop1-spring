@@ -13,7 +13,7 @@ import rsvier.workshop.domain.*;
 import rsvier.workshop.view.*;
 
 @Component
-public class OrderController extends Controller {
+public class OrderController implements Controller {
 
 	@Autowired 
 	private OrderView orderView ;

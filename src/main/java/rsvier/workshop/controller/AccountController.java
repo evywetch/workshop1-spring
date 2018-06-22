@@ -10,7 +10,7 @@ import rsvier.workshop.service.Validator;
 import rsvier.workshop.view.AccountView;
 
 @Component 
-public class AccountController extends Controller{
+public class AccountController implements Controller{
 
 	@Autowired
 	private AccountView accountView ;

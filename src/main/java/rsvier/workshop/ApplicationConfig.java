@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@ComponentScan(basePackages={"rsvier.workshop.controller","rsvier.workshop.dao","rsvier.workshop.service","rsvier.workshop.view"})
+@ComponentScan(basePackages={"rsvier.workshop","rsvier.workshop.controller","rsvier.workshop.dao","rsvier.workshop.service","rsvier.workshop.view"})
 
 public class ApplicationConfig {
 

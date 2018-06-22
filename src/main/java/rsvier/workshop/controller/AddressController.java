@@ -13,7 +13,7 @@ import rsvier.workshop.domain.Address.AddressBuilder;
 import rsvier.workshop.view.AddressView;
 
 @Component
-public class AddressController extends Controller{
+public class AddressController implements Controller{
 
 	@Autowired
 	private AddressView addressView ;

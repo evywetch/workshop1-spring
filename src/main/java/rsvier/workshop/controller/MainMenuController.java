@@ -8,7 +8,7 @@ import rsvier.workshop.service.LoginValidator;
 import rsvier.workshop.view.MainMenuView;
 
 @Component
-public class MainMenuController extends Controller{
+public class MainMenuController implements Controller{
 
 	@Autowired
 	private MainMenuView mainMenuView;
