@@ -17,7 +17,6 @@ import rsvier.workshop.controller.MainController.TypeOfController;
 public class CustomerController extends Controller {
 
 	@Autowired
-	@Qualifier("customerView")
 	private CustomerView customerView;
 	@Autowired
 	private AccountController accountController;
@@ -29,16 +28,13 @@ public class CustomerController extends Controller {
 	@Override
 	public void runView() {
 
-		// check if customerView is injected or not ...result = false. This line
-		// is reached
-		System.out.println("customerView is null:" + customerView == null);
-
-		// here customerView = null , cuase NullPointerException. This line is
-		// not reached. Why?
-		customerView.printHeaderMessage();
+		// check if dependencies are injected or not.  Result = they are not injected!!
+		System.out.println(customerView == null ); 
+		System.out.println(accountController == null ); 
+		System.out.println(personController== null ); 
+		System.out.println( addressController == null ); 
 		
-		System.out.println("customerView is null:" + customerView == null);
-
+		customerView.printHeaderMessage();
 		customerView.printMenuMessage();
 		searchOrAddCustomerMenuSwitch(customerView.getIntInput());
 

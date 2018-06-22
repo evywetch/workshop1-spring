@@ -4,7 +4,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Component;
 
-@Component("customerView")
+@Component
 public class CustomerView extends View {
 
 	@Override
