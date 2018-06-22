@@ -2,8 +2,9 @@ package rsvier.workshop;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-import rsvier.workshop.controller.ControllerConfig;
 import rsvier.workshop.controller.MainMenuController;
 
 
@@ -18,7 +19,7 @@ public class App {
 	public static void main(String[] args) {
 		
 		
-		ApplicationContext context = new AnnotationConfigApplicationContext(ControllerConfig.class);
+		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
 	//	View view = new MainMenuView();
 		

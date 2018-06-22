@@ -11,7 +11,7 @@ import rsvier.workshop.controller.MainController.TypeOfController;
 public class EmployeeController extends Controller{
 	
 	@Autowired
-	private EmployeeView employeeView = new EmployeeView();
+	private EmployeeView employeeView;
 	
 	
 	@Override

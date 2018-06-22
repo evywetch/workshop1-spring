@@ -16,6 +16,7 @@ import rsvier.workshop.view.*;
 
 @Component
 public class OrderLineController extends Controller {
+	
 	@Autowired
 	private OrderLineView orderLineView ;
 	@Autowired

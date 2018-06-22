@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import rsvier.workshop.dao.*;
 
-
+@Component
 public abstract class View {
 
 	private Scanner userInput = new Scanner(System.in);

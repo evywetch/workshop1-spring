@@ -1,10 +1,10 @@
 
-
 package rsvier.workshop.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import rsvier.workshop.dao.*;
@@ -15,54 +15,61 @@ import rsvier.workshop.controller.MainController.TypeOfController;
 
 @Component
 public class CustomerController extends Controller {
-	
+
 	@Autowired
+	@Qualifier("customerView")
 	private CustomerView customerView;
 	@Autowired
-	private AccountController accountController ;
+	private AccountController accountController;
 	@Autowired
 	private PersonController personController;
 	@Autowired
-	private AddressController addressController ;
+	private AddressController addressController;
 
-	
 	@Override
 	public void runView() {
 
+		// check if customerView is injected or not ...result = false. This line
+		// is reached
+		System.out.println("customerView is null:" + customerView == null);
+
+		// here customerView = null , cuase NullPointerException. This line is
+		// not reached. Why?
 		customerView.printHeaderMessage();
+		
+		System.out.println("customerView is null:" + customerView == null);
+
 		customerView.printMenuMessage();
 		searchOrAddCustomerMenuSwitch(customerView.getIntInput());
 
 	}
 
-	
 	public void searchOrAddCustomerMenuSwitch(int menuNumber) {
 
 		switch (menuNumber) {
 
-			case 1: // Search customer by last name
-					findCustomerAndCheckIfExist();
-					break;
+		case 1: // Search customer by last name
+			findCustomerAndCheckIfExist();
+			break;
 
-			case 2: // Add customer
-					addCustomer();
-					runView();
-					break;
+		case 2: // Add customer
+			addCustomer();
+			runView();
+			break;
 
-			case 0: // Go back to employee-menu
-					MainController.setController(TypeOfController.EMPLOYEE);
-					break;
+		case 0: // Go back to employee-menu
+			MainController.setController(TypeOfController.EMPLOYEE);
+			break;
 
-			default:
-					customerView.printMenuInputIsWrong();
-					runView();
+		default:
+			customerView.printMenuInputIsWrong();
+			runView();
 
-					break;
+			break;
 
 		}
 	}
 
-	
 	public void updateOrDeleteCustomerSwitch(Person person) {
 
 		PersonController personController = new PersonController();
@@ -72,23 +79,23 @@ public class CustomerController extends Controller {
 
 		switch (choice) {
 
-			case 1: // Update person
-					personController.personUpdateMenuSwitch(person);
-					break;
+		case 1: // Update person
+			personController.personUpdateMenuSwitch(person);
+			break;
 
-			case 2: // Delete person
-					confirmAndDeletePerson(person);
-					runView();
-					break;
+		case 2: // Delete person
+			confirmAndDeletePerson(person);
+			runView();
+			break;
 
-			case 0: // back to previous menu
-					runView();
-					break;
+		case 0: // back to previous menu
+			runView();
+			break;
 
-			default: // back to previous menu
-					customerView.printMenuInputIsWrong();
-					runView();
-					break;
+		default: // back to previous menu
+			customerView.printMenuInputIsWrong();
+			runView();
+			break;
 		}
 	}
 
@@ -144,18 +151,19 @@ public class CustomerController extends Controller {
 		} else {
 
 			for (int i = 0; i < customerList.size(); i++) {
-				System.out.println("No. " + (i+1) + " : " + customerList.get(i).toString());
+				System.out.println("No. " + (i + 1) + " : " + customerList.get(i).toString());
 			}
 
 		}
-		
+
 		int choice = selectCustomer();
-		while(choice < 1 | choice > customerList.size()) {
+		while (choice < 1 | choice > customerList.size()) {
 			customerView.printMenuInputIsWrong();
 			choice = selectCustomer();
 		}
 
-		// Let user select specific person in case there is more than one persons with
+		// Let user select specific person in case there is more than one
+		// persons with
 		// the same last name
 
 		return customerList.get(choice - 1);

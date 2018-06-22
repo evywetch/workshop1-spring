@@ -1,8 +1,10 @@
 package rsvier.workshop.view;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("customerView")
 public class CustomerView extends View {
 
 	@Override
@@ -39,6 +41,10 @@ public class CustomerView extends View {
 		System.out.print("Selecteer een klant door het nummer in te voeren: ");
 	}
 	
+	@PostConstruct
+	public void init(){
+		System.out.println("CustomerView bean is created");
+	}
 	
 	
 	

@@ -1,6 +1,8 @@
 package rsvier.workshop.controller;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class MainController {
 
     public enum TypeOfController {PERSON, EMPLOYEE, CUSTOMER, MAINMENU, ACCOUNT, PRODUCT,ORDER};
