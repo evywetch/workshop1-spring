@@ -25,6 +25,8 @@ public class OrderLineController extends Controller {
 	private OrderView orderView;
 	@Autowired
 	private ProductController productController ;
+	@Autowired
+	private MainController mainController;
 
 	@Override
 	public void runView() {
@@ -58,13 +60,13 @@ public class OrderLineController extends Controller {
 			case 3: // Place order in the database
 				placeOrderInDatabase(order);
 				placingOrder = false;
-				MainController.setController(TypeOfController.EMPLOYEE);
+				mainController.setController(TypeOfController.EMPLOYEE);
 				break;
 
 			case 4: // Cancel order
 				cancelAllOrderLines(order);
 				placingOrder = false;
-				MainController.setController(TypeOfController.ORDER);
+				mainController.setController(TypeOfController.ORDER);
 				break;
 
 			default:

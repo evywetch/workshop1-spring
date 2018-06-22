@@ -23,6 +23,8 @@ public class OrderController extends Controller {
 	private OrderLineController orderLineController;
 	@Autowired
 	private OrderLineView orderLineView ;
+	@Autowired
+	private MainController mainController;
 	
 	
 	@Override
@@ -45,7 +47,7 @@ public class OrderController extends Controller {
 			break;
 
 		case 0: // Go back to previous menu
-			MainController.setController(TypeOfController.EMPLOYEE);
+			mainController.setController(TypeOfController.EMPLOYEE);
 			break;
 
 		default:
@@ -130,7 +132,7 @@ public class OrderController extends Controller {
 				break;
 
 			case 0:
-				MainController.setController(TypeOfController.ORDER);
+				mainController.setController(TypeOfController.ORDER);
 				updating = false;
 				break;
 			default:

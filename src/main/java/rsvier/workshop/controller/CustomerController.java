@@ -16,14 +16,16 @@ import rsvier.workshop.controller.MainController.TypeOfController;
 @Component
 public class CustomerController extends Controller {
 
-	@Autowired
+	@Autowired 
 	private CustomerView customerView;
-	@Autowired
+	@Autowired 
 	private AccountController accountController;
 	@Autowired
 	private PersonController personController;
 	@Autowired
 	private AddressController addressController;
+	@Autowired
+	private MainController mainController;
 
 	@Override
 	public void runView() {
@@ -54,7 +56,7 @@ public class CustomerController extends Controller {
 			break;
 
 		case 0: // Go back to employee-menu
-			MainController.setController(TypeOfController.EMPLOYEE);
+			mainController.setController(TypeOfController.EMPLOYEE);
 			break;
 
 		default:

@@ -19,7 +19,7 @@ public class AddressController extends Controller{
 	private AddressView addressView ;
 	@Autowired
 	private Validator validator;
-
+	
 	
 	public void runView() {
 		// TODO Auto-generated method stub

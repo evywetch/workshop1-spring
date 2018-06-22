@@ -18,6 +18,8 @@ public class PersonController extends Controller {
 	private PersonView personView ;
 	@Autowired
 	private AddressController addressController ;
+	@Autowired
+	private MainController mainController;
 
 	@Override
 	public void runView() {
@@ -57,7 +59,7 @@ public class PersonController extends Controller {
 					personView.printPersonUserDetailsAreSuccessfullyUpdated();
 					
 			case 0: // exit and go back to employee menu
-					MainController.setController(TypeOfController.EMPLOYEE);
+					mainController.setController(TypeOfController.EMPLOYEE);
 					updating = false;
 					break;
 			default: // back to this menu again

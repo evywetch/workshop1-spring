@@ -1,79 +1,82 @@
 package rsvier.workshop.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MainController {
+	@Component
+	public enum TypeOfController {
+		PERSON, EMPLOYEE, CUSTOMER, MAINMENU, ACCOUNT, PRODUCT, ORDER
+	};
 
-    public enum TypeOfController {PERSON, EMPLOYEE, CUSTOMER, MAINMENU, ACCOUNT, PRODUCT,ORDER};
+	@Autowired
+	private TypeOfController controllerType;
+	@Autowired
+	private PersonController personController;
+	@Autowired
+	private EmployeeController employeeController;
+	@Autowired
+	private CustomerController customerController;
+	@Autowired
+	private MainMenuController mainMenuController;
+	@Autowired
+	private AccountController accountController;
+	@Autowired
+	private ProductController productController;
+	@Autowired
+	private OrderController orderController;
+	@Autowired
+	private  Controller currentController;
 
-    private TypeOfController controllerType;
-    private static PersonController personController = new PersonController();
-    private static EmployeeController employeeController = new EmployeeController();
-    private static CustomerController customerController = new CustomerController();
-    private static MainMenuController mainMenuController = new MainMenuController();
-    private static AccountController accountController = new AccountController();
-    private static ProductController productController = new ProductController();
-    private static OrderController orderController = new OrderController();
+	// Switch method for setting currentController and calling the runView
+	// method of that controller
 
-    private static Controller currentController;
+	public void setController(TypeOfController controllerType) {
 
-    
-    //Switch method for setting currentController and calling the runView method of that controller
-    
-    public static void setController(TypeOfController controllerType) {
-       
-    		switch (controllerType) {
-    		
-    			case PERSON:
-    				currentController = personController;
-    				break;
-    				
-            case EMPLOYEE:
-                currentController = employeeController;
-                break;
-                
-            case CUSTOMER:
-                currentController = customerController;
-                break;
-                
-            case MAINMENU:
-                currentController = mainMenuController;
-                break;
-                
-            case ACCOUNT:
-                currentController = accountController;
-                break;
-                
-            case PRODUCT:
-            		currentController = productController;
-            		break;
-            		
-            case ORDER:
-            		currentController = orderController;
-            		break;
-            	
-        }
+		switch (controllerType) {
 
-        currentController.runView();
-    }
+		case PERSON:
+			currentController = personController;
+			break;
 
-    /*private static void runView() {
-        currentController.printView();
-    }
+		case EMPLOYEE:
+			currentController = employeeController;
+			break;
 
-    public void queryChoice() {
-        while(true) {
-            boolean validChoice = false;
+		case CUSTOMER:
+			currentController = customerController;
+			break;
 
-            int keuze = -1;
-            while(!validChoice) {
-                // query keuze
-                // zet keuze in keuze
-                // zet valideKeuze
-            }
+		case MAINMENU:
+			currentController = mainMenuController;
+			break;
 
-            currentController.verwerkKeuze(keuze);
-        }
-    }*/
+		case ACCOUNT:
+			currentController = accountController;
+			break;
+
+		case PRODUCT:
+			currentController = productController;
+			break;
+
+		case ORDER:
+			currentController = orderController;
+			break;
+
+		}
+
+		currentController.runView();
+	}
+
+	/*
+	 * private static void runView() { currentController.printView(); }
+	 * 
+	 * public void queryChoice() { while(true) { boolean validChoice = false;
+	 * 
+	 * int keuze = -1; while(!validChoice) { // query keuze // zet keuze in
+	 * keuze // zet valideKeuze }
+	 * 
+	 * currentController.verwerkKeuze(keuze); } }
+	 */
 }

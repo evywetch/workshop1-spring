@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomerView extends View {
-
+	
+	
 	@Override
 	public void printHeaderMessage() {
 		System.out.println("\n=========== Werknemer  |  Klantenbeheer ===========\n");

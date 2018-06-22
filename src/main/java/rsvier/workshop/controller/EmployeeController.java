@@ -12,6 +12,8 @@ public class EmployeeController extends Controller{
 	
 	@Autowired
 	private EmployeeView employeeView;
+	@Autowired
+	private MainController mainController;
 	
 	
 	@Override
@@ -29,23 +31,23 @@ public class EmployeeController extends Controller{
 		switch (menuNumber) {
 
 			case 1:	//Klanten beheren
-					MainController.setController(TypeOfController.CUSTOMER);
+					mainController.setController(TypeOfController.CUSTOMER);
 					break;
 
 			case 2: //Accounts beheren
-					MainController.setController(TypeOfController.ACCOUNT);
+					mainController.setController(TypeOfController.ACCOUNT);
 					break;
 
 			case 3: //producten beheren
-					MainController.setController(TypeOfController.PRODUCT);
+					mainController.setController(TypeOfController.PRODUCT);
 					break;
 			
 			case 4:	//bestellingen beheren
-					MainController.setController(TypeOfController.ORDER);
+					mainController.setController(TypeOfController.ORDER);
 					break;
 			case 0:	//Exit Menu
 					
-					MainController.setController(TypeOfController.MAINMENU);
+					mainController.setController(TypeOfController.MAINMENU);
 					break;
 			
 			default:

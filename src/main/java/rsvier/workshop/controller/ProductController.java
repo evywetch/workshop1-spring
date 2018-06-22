@@ -17,6 +17,8 @@ public class ProductController extends Controller {
 
 	@Autowired
 	private ProductView productView;
+	@Autowired
+	private MainController mainController;
 
 	@Override
 	public void runView() {
@@ -45,7 +47,7 @@ public class ProductController extends Controller {
 			break;
 
 		case 0: // back to previous menu
-			MainController.setController(TypeOfController.EMPLOYEE);
+			mainController.setController(TypeOfController.EMPLOYEE);
 			break;
 
 		default:// Goes back to this same menu

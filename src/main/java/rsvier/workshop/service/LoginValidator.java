@@ -19,6 +19,8 @@ public class LoginValidator {
 	private Controller employeeController;
 	@Autowired
 	private Hashing hashing;
+	@Autowired
+	private MainController mainController;
 
 	public void loginCheckAccountValidation() {
 
@@ -39,7 +41,7 @@ public class LoginValidator {
 				|| (!hashing.checkPassword(password, account.getPassword()))) {
 
 			accountView.printLoginDetailsWrong();
-			MainController.setController(TypeOfController.MAINMENU);
+			mainController.setController(TypeOfController.MAINMENU);
 		} else {
 			accountView.printLoginAccountIsSuccessful();
 			employeeController.runView();

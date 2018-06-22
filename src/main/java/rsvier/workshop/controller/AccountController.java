@@ -9,7 +9,7 @@ import rsvier.workshop.service.Hashing;
 import rsvier.workshop.service.Validator;
 import rsvier.workshop.view.AccountView;
 
-@Component
+@Component 
 public class AccountController extends Controller{
 
 	@Autowired
@@ -18,8 +18,8 @@ public class AccountController extends Controller{
 	private Validator validator;
 	@Autowired
 	private Hashing hashing;
-
-
+	@Autowired
+	private MainController mainController;
 	
 	public AccountController() {
 	}
@@ -65,12 +65,13 @@ public class AccountController extends Controller{
 						DAOFactory.getAccountDAO().updateAccount(account);
 						accountView.printConfirmUpdateAccount();
 						updating = false;
-						MainController.setController(MainController.TypeOfController.EMPLOYEE);
+						
+						mainController.setController(MainController.TypeOfController.EMPLOYEE);
 						break;
 
 					case 0: // cancel
 						updating = false;
-						MainController.setController(MainController.TypeOfController.EMPLOYEE);
+						mainController.setController(MainController.TypeOfController.EMPLOYEE);
 						break;
 
 					default:
@@ -79,7 +80,7 @@ public class AccountController extends Controller{
 			}
 		} else {
 			accountView.printAccountNotFound();
-			MainController.setController(MainController.TypeOfController.EMPLOYEE);
+			mainController.setController(MainController.TypeOfController.EMPLOYEE);
 		}
 	}
 	
